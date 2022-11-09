@@ -8,7 +8,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10"/>
     <PackageReference Include="Serilog.AspNetCore" Version="6.0.1"/>
     <PackageReference Include="Serilog.Expressions" Version="3.4.1"/>
     <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1"/>
@@ -16,9 +15,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.10"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10"/>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FoodDiary.Entities\FoodDiary.Entities.csproj" />
+    <ProjectReference Include="..\FoodDiary.Repository\FoodDiary.Repository.csproj" />
   </ItemGroup>
 </Project>

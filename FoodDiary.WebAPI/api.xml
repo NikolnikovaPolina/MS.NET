@@ -32,6 +32,12 @@
             </summary>
             <param name="builder"></param>
         </member>
+        <member name="M:FoodDiary.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddMapperConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add serilog configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
         <member name="M:FoodDiary.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSerilogConfiguration(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <summary>
             Add serilog configuration
@@ -49,6 +55,37 @@
             Configure versioning
             </summary>
             <param name="services"></param>
+        </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.UsersController">
+            <summary>
+            Users endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.UsersController.#ctor(FoodDiary.Services.Abstract.IUserService,AutoMapper.IMapper)">
+            <summary>
+            Users controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.UsersController.GetUsers(System.Int32,System.Int32)">
+            <summary>
+            Get users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.UsersController.UpdateUser(System.Guid,FoodDiary.WebAPI.Models.UpdateUserRequest)">
+            <summary>
+            Update user
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.UsersController.DeleteUser(System.Guid)">
+            <summary>
+            Delete user
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.UsersController.GetUser(System.Guid)">
+            <summary>
+            Get user
+            </summary>
         </member>
     </members>
 </doc>

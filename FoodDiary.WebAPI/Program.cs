@@ -1,8 +1,7 @@
-using FoodDiary.Repository;
 using FoodDiary.WebAPI.AppConfiguration.ServicesExtensions;
 using FoodDiary.WebAPI.AppConfiguration.ApplicationExtensions;
-using FoodDiary.Entities;
-using Microsoft.EntityFrameworkCore;
+using FoodDiary.Repository;
+using FoodDiary.Services;
 using Serilog;
 
 var configuration = new ConfigurationBuilder()
@@ -15,11 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddSerilogConfiguration();
 builder.Services.AddDbContextConfiguration(configuration);
 builder.Services.AddVersioningConfiguration();
+builder.Services.AddMapperConfiguration();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerConfiguration();
-
-builder.Services.AddScoped<DbContext, Context>();
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddRepositoryConfiguration();
+builder.Services.AddBusinessLogicConfiguration();
 
 var app = builder.Build();
 

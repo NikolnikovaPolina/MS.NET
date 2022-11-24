@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true,
+        "**/logs": true
+    },
+    "editor.mouseWheelZoom": true,
+    "window.zoomLevel": 0
+}

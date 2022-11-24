@@ -34,4 +34,4 @@
 
 
 # Логическая модель
-![image](https://user-images.githubusercontent.com/101321771/203845155-fe8f4fbf-c502-4a0a-99e3-b7453050ffbc.png)
+![image](https://user-images.githubusercontent.com/101321771/203850098-7236af6f-883d-4d96-9e33-aaf669ce5dd4.png)

@@ -58,17 +58,17 @@
         </member>
         <member name="T:FoodDiary.WebAPI.Controllers.UsersController">
             <summary>
-            Users endpoints
+            Doctors endpoints
             </summary>
         </member>
         <member name="M:FoodDiary.WebAPI.Controllers.UsersController.#ctor(FoodDiary.Services.Abstract.IUserService,AutoMapper.IMapper)">
             <summary>
-            Users controller
+            Doctors controller
             </summary>
         </member>
         <member name="M:FoodDiary.WebAPI.Controllers.UsersController.GetUsers(System.Int32,System.Int32)">
             <summary>
-            Get users
+            Get users by pages
             </summary>
             <returns></returns>
         </member>

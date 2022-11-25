@@ -55,7 +55,8 @@ public class UserService : IUserService
         }
 
         existingUser.FIO = user.FIO;
-        existingUser.Email= user.Email;
+        existingUser.Weight = user.Weight;
+        existingUser.ActivityLevel = user.ActivityLevel;
 
         existingUser = usersRepository.Save(existingUser);
         return mapper.Map<UserModel>(existingUser);

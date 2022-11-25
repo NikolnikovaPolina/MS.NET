@@ -84,16 +84,7 @@ namespace FoodDiary.Entities.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<float>("AmountOfCarbohydratesConsumed")
-                        .HasColumnType("real");
-
-                    b.Property<float>("AmountOfFatConsumed")
-                        .HasColumnType("real");
-
-                    b.Property<float>("AmountOfProteinConsumed")
-                        .HasColumnType("real");
-
+                
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
@@ -110,10 +101,7 @@ namespace FoodDiary.Entities.Migrations
                     b.Property<string>("NameOfTheGoal")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NumberOfCaloriesConsumed")
-                        .HasColumnType("int");
-
+                    
                     b.Property<string>("Program")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -242,11 +230,7 @@ namespace FoodDiary.Entities.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nik")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telephone")
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -56,14 +56,196 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.DailyRationsController">
+            <summary>
+            Daily ration endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.DailyRationsController.#ctor(FoodDiary.Services.Abstract.IDailyRationService,AutoMapper.IMapper)">
+            <summary>
+            Daily ration controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.DailyRationsController.GetDailyRations(System.Int32,System.Int32)">
+            <summary>
+            Get Daily Rations by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.DailyRationsController.DeleteDailyRation(System.Guid)">
+            <summary>
+            Delete Daily ration
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.DailyRationsController.AddDailyRation(FoodDiary.Services.Models.DailyRationModel)">
+            <summary>
+            Add Daily ration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.DailyRationsController.GetDailyRation(System.Guid)">
+            <summary>
+            Get Daily ration
+            </summary>
+        </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.ExercisesController">
+            <summary>
+            Exercises endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ExercisesController.#ctor(FoodDiary.Services.Abstract.IExerciseService,AutoMapper.IMapper)">
+            <summary>
+            Exercises controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ExercisesController.GetExercises(System.Int32,System.Int32)">
+            <summary>
+            Get Exercises by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ExercisesController.DeleteExercise(System.Guid)">
+            <summary>
+            Delete Exercise
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ExercisesController.GetExercise(System.Guid)">
+            <summary>
+            Get Exercise
+            </summary>
+        </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.GoalsController">
+            <summary>
+            Goals endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.GoalsController.#ctor(FoodDiary.Services.Abstract.IGoalService,AutoMapper.IMapper)">
+            <summary>
+            Goals controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.GoalsController.GetGoals(System.Int32,System.Int32)">
+            <summary>
+            Get Goals by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.GoalsController.UpdateGoal(System.Guid,FoodDiary.WebAPI.Models.UpdateGoalRequest)">
+            <summary>
+            Update Goal
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.GoalsController.DeleteGoal(System.Guid)">
+            <summary>
+            Delete Goal
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.GoalsController.GetGoal(System.Guid)">
+            <summary>
+            Get Goal
+            </summary>
+        </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.ListsOfExercisesController">
+            <summary>
+            ListsOfExercises endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ListsOfExercisesController.#ctor(FoodDiary.Services.Abstract.IListOfExercisesService,AutoMapper.IMapper)">
+            <summary>
+            ListsOfExercises controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ListsOfExercisesController.GetListsOfExercises(System.Int32,System.Int32)">
+            <summary>
+            Get ListsOfExercises by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ListsOfExercisesController.UpdateListOfExercises(System.Guid,FoodDiary.WebAPI.Models.UpdateListOfExercisesRequest)">
+            <summary>
+            Update ListOfExerciseS
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ListsOfExercisesController.DeleteListOfExercises(System.Guid)">
+            <summary>
+            Delete ListOfExercises
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ListsOfExercisesController.GetListOfExercises(System.Guid)">
+            <summary>
+            Get ListOfExercises
+            </summary>
+        </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.MenusController">
+            <summary>
+            Menus endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.MenusController.#ctor(FoodDiary.Services.Abstract.IMenuService,AutoMapper.IMapper)">
+            <summary>
+            Menus controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.MenusController.GetMenus(System.Int32,System.Int32)">
+            <summary>
+            Get Menus by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.MenusController.UpdateMenu(System.Guid,FoodDiary.WebAPI.Models.UpdateMenuRequest)">
+            <summary>
+            Update Menu
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.MenusController.DeleteMenu(System.Guid)">
+            <summary>
+            Delete Menu
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.MenusController.GetMenu(System.Guid)">
+            <summary>
+            Get Menu
+            </summary>
+        </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.ProductsController">
+            <summary>
+            Products endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ProductsController.#ctor(FoodDiary.Services.Abstract.IProductService,AutoMapper.IMapper)">
+            <summary>
+            Products controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ProductsController.GetProducts(System.Int32,System.Int32)">
+            <summary>
+            Get Products by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ProductsController.UpdateProduct(System.Guid,FoodDiary.WebAPI.Models.UpdateProductRequest)">
+            <summary>
+            Update Product
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ProductsController.DeleteProduct(System.Guid)">
+            <summary>
+            Delete Product
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.ProductsController.GetProduct(System.Guid)">
+            <summary>
+            Get Product
+            </summary>
+        </member>
         <member name="T:FoodDiary.WebAPI.Controllers.UsersController">
             <summary>
-            Doctors endpoints
+            Users endpoints
             </summary>
         </member>
         <member name="M:FoodDiary.WebAPI.Controllers.UsersController.#ctor(FoodDiary.Services.Abstract.IUserService,AutoMapper.IMapper)">
             <summary>
-            Doctors controller
+            Users controller
             </summary>
         </member>
         <member name="M:FoodDiary.WebAPI.Controllers.UsersController.GetUsers(System.Int32,System.Int32)">
@@ -85,6 +267,32 @@
         <member name="M:FoodDiary.WebAPI.Controllers.UsersController.GetUser(System.Guid)">
             <summary>
             Get user
+            </summary>
+        </member>
+        <member name="T:FoodDiary.WebAPI.Controllers.WorkoutsController">
+            <summary>
+            Workouts endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.WorkoutsController.#ctor(FoodDiary.Services.Abstract.IWorkoutService,AutoMapper.IMapper)">
+            <summary>
+            Workouts controller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.WorkoutsController.GetWorkouts(System.Int32,System.Int32)">
+            <summary>
+            Get Workouts by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.WorkoutsController.DeleteWorkout(System.Guid)">
+            <summary>
+            Delete Workout
+            </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.WorkoutsController.GetWorkout(System.Guid)">
+            <summary>
+            Get Workout
             </summary>
         </member>
     </members>

@@ -17,12 +17,11 @@ public class UpdateUserRequest
     #region Validator
 
     public class Validator : AbstractValidator<UpdateUserRequest>
-    {//?
+    {
         public Validator()
         {
             RuleFor(x => x.FIO)
                 .MaximumLength(255).WithMessage("Length must be less than 256");
-            RuleFor(x => x.Weight);
         }
     }
 

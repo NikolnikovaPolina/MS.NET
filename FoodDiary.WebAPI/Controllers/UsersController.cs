@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FoodDiary.WebAPI.Controllers
 {
     /// <summary>
-    /// Doctors endpoints
+    /// Users endpoints
     /// </summary>
     [ProducesResponseType(200)]
     [ApiVersion("1.0")]
@@ -19,7 +19,7 @@ namespace FoodDiary.WebAPI.Controllers
         private readonly IMapper mapper;
 
         /// <summary>
-        /// Doctors controller
+        /// Users controller
         /// </summary>
         public UsersController(IUserService userService, IMapper mapper)
         {

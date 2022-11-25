@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FoodDiary.WebAPI.Controllers
 {
     /// <summary>
-    /// Files endpoints
+    /// Daily ration endpoints
     /// </summary>
     [ProducesResponseType(200)]
     [ApiVersion("1.0")]

@@ -72,6 +72,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:FoodDiary.WebAPI.Controllers.DailyRationsController.UpdateDailyRation(System.Guid,FoodDiary.WebAPI.Models.UpdateDailyRationRequest)">
+            <summary>
+            Update Daily ration
+            </summary>
+        </member>
         <member name="M:FoodDiary.WebAPI.Controllers.DailyRationsController.DeleteDailyRation(System.Guid)">
             <summary>
             Delete Daily ration

@@ -39,6 +39,30 @@ namespace FoodDiary.WebAPI.Controllers
 
 
         /// <summary>
+        /// Update Daily ration
+        /// </summary>
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult UpdateDailyRation([FromRoute] Guid id, [FromBody] UpdateDailyRationRequest model)
+        {
+            var validationResult = model.Validate();
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+            try
+            {
+                var resultModel = dailyRationService.UpdateDailyRation(id, mapper.Map<UpdateDailyRationModel>(model));
+
+                return Ok(mapper.Map<DailyRationResponse>(resultModel));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        /// <summary>
         /// Delete Daily ration
         /// </summary>
         [HttpDelete]
@@ -56,15 +80,14 @@ namespace FoodDiary.WebAPI.Controllers
             }
         }
 
-
         /// <summary>
         /// Add Daily ration
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult AddDailyRation([FromBody] DailyRationModel dailyRation)
+        public IActionResult AddDailyRation([FromRoute] Guid userId, [FromBody] DailyRationModel dailyRation)
         {
-            var response = dailyRationService.AddDailyRation(dailyRation);
+            var response = dailyRationService.AddDailyRation(userId, dailyRation);
             return Ok(response);
         }
 

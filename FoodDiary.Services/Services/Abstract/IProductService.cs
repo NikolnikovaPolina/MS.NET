@@ -6,11 +6,11 @@ public interface IProductService
 {
     ProductModel GetProduct(Guid id);
 
-    ProductModel UpdateProduct(Guid id, UpdateProductModel user);
+    ProductModel UpdateProduct(Guid id, UpdateProductModel product);
 
     void DeleteProduct(Guid id);
 
-    ProductModel AddProduct(ProductModel productModel);
+    CreateProductModel AddProduct(ProductModel product);
 
     PageModel<ProductPreviewModel> GetProducts(int limit = 20, int offsert = 0);
 }

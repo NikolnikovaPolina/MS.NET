@@ -6,9 +6,11 @@ public interface IExerciseService
 {
     ExerciseModel GetExercise(Guid id);
 
+    ExerciseModel UpdateExercise(Guid id, UpdateExerciseModel exercise);
+
     void DeleteExercise(Guid id);
 
-    ExerciseModel AddExercise(ExerciseModel exercise);
+    CreateExerciseModel AddExercise(ExerciseModel exercise);
 
     PageModel<ExercisePreviewModel> GetExercises(int limit = 20, int offsert = 0);
 }

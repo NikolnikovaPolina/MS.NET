@@ -6,9 +6,11 @@ public interface IWorkoutService
 {
     WorkoutModel GetWorkout(Guid id);
 
+    WorkoutModel UpdateWorkout(Guid id, UpdateWorkoutModel workout);
+
     void DeleteWorkout(Guid id);
 
-    WorkoutModel AddWorkout(WorkoutModel workoutModel);
+    CreateWorkoutModel AddWorkout(Guid UserId, WorkoutModel workoutModel);
 
     PageModel<WorkoutPreviewModel> GetWorkouts(int limit = 20, int offsert = 0);
 }

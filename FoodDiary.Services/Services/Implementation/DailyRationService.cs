@@ -46,7 +46,33 @@ public class DailyRationService : IDailyRationService
         };
     }
 
-   public DailyRationModel AddDailyRation(DailyRationModel dailyRationModel){
+    public DailyRationModel UpdateDailyRation(Guid id, UpdateDailyRationModel dailyRation)
+    {
+        var existingDailyRation = dailyRationsRepository.GetById(id);
+        if (existingDailyRation == null)
+        {
+            throw new Exception("Daily ration not found");
+        }
+
+        existingDailyRation.Date = dailyRation.Date;
+
+        existingDailyRation = dailyRationsRepository.Save(existingDailyRation);
+        return mapper.Map<DailyRationModel>(existingDailyRation);
+    }
+
+
+   public CreateDailyRationModel AddDailyRation(Guid UserId, DailyRationModel dailyRation)
+   {
+        if(dailyRationsRepository.GetAll(x => x.Id == dailyRation.Id).FirstOrDefault() != null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        CreateDailyRationModel dailyRationModel = new CreateDailyRationModel();
+
+        dailyRationModel.UserId = dailyRation.UserId;
+        dailyRationModel.Date = dailyRation.Date;
+
         dailyRationsRepository.Save(mapper.Map<Entities.Models.DailyRation>(dailyRationModel));
         return dailyRationModel;
     }

@@ -62,8 +62,22 @@ public class WorkoutService : IWorkoutService
         return mapper.Map<WorkoutModel>(existingWorkout);
     }
 
-     public WorkoutModel AddWorkout(WorkoutModel workoutModel){
-      workoutsRepository.Save(mapper.Map<Entities.Models.Workout>(workoutModel));
+     public CreateWorkoutModel AddWorkout(Guid UserId, WorkoutModel workout){
+
+         if(workoutsRepository.GetAll(x => x.Id == workout.Id).FirstOrDefault()!=null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        CreateWorkoutModel workoutModel = new CreateWorkoutModel();
+
+        workoutModel.UserId = workout.UserId;
+        workoutModel.TrainingName = workout.TrainingName;
+        workoutModel.DataOfTheTraining = workout.DataOfTheTraining;
+        workoutModel.DifficultyLevel = workout.DifficultyLevel;
+        workoutModel.TrainingDescription = workout.TrainingDescription;
+
+        workoutsRepository.Save(mapper.Map<Entities.Models.Workout>(workoutModel));
         return workoutModel;
     }
 }

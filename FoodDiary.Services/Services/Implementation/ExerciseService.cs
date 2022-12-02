@@ -46,8 +46,39 @@ public class ExerciseService : IExerciseService
         };
     }
 
-    public ExerciseModel AddExercise(ExerciseModel exerciseModel){
-      exercisesRepository.Save(mapper.Map<Entities.Models.Exercise>(exerciseModel));
+    public ExerciseModel UpdateExercise(Guid id, UpdateExerciseModel exercise)
+    {
+        var existingExercise = exercisesRepository.GetById(id);
+        if (existingExercise == null)
+        {
+            throw new Exception("Exercise not found");
+        }
+
+        existingExercise.NameOfTheExercise = exercise.NameOfTheExercise;
+        existingExercise.DescriptionOfTheExercise = exercise.DescriptionOfTheExercise;
+        existingExercise.NumberofCaloriesBurned = exercise.NumberofCaloriesBurned;
+        existingExercise.DifficultyLevel = exercise.DifficultyLevel;
+
+        existingExercise = exercisesRepository.Save(existingExercise);
+        return mapper.Map<ExerciseModel>(existingExercise);
+    }
+
+
+    public CreateExerciseModel AddExercise(ExerciseModel exercise){
+
+         if(exercisesRepository.GetAll(x => x.Id == exercise.Id).FirstOrDefault() != null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        CreateExerciseModel exerciseModel = new CreateExerciseModel(); 
+
+        exerciseModel.NameOfTheExercise = exercise.NameOfTheExercise;
+        exerciseModel.DescriptionOfTheExercise = exercise.DescriptionOfTheExercise;
+        exerciseModel.NumberofCaloriesBurned = exercise.NumberofCaloriesBurned;
+        exerciseModel.DifficultyLevel = exercise.DifficultyLevel;
+
+        exercisesRepository.Save(mapper.Map<Entities.Models.Exercise>(exerciseModel));
         return exerciseModel;
     }
 }

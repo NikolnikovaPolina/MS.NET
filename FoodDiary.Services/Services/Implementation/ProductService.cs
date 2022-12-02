@@ -61,8 +61,19 @@ public class ProductService : IProductService
         return mapper.Map<ProductModel>(existingProduct);
     }
 
-     public ProductModel AddProduct(ProductModel productModel){
-      productsRepository.Save(mapper.Map<Entities.Models.Product>(productModel));
+     public CreateProductModel AddProduct(ProductModel product){
+        
+         if(productsRepository.GetAll(x => x.Id == product.Id).FirstOrDefault() != null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        CreateProductModel productModel = new CreateProductModel();
+
+        productModel.ProductName = product.ProductName;
+        productModel.CaloricContent = product.CaloricContent;
+
+        productsRepository.Save(mapper.Map<Entities.Models.Product>(productModel));
         return productModel;
     }
 }

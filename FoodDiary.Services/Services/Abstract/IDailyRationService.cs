@@ -6,9 +6,11 @@ public interface IDailyRationService
 {
     DailyRationModel GetDailyRation(Guid id);
 
+    DailyRationModel UpdateDailyRation(Guid id, UpdateDailyRationModel dailyRation);
+
     void DeleteDailyRation(Guid id);
 
-    DailyRationModel AddDailyRation(DailyRationModel dailyRationModel);
+    CreateDailyRationModel AddDailyRation(Guid UserId, DailyRationModel dailyRation);
 
     PageModel<DailyRationPreviewModel> GetDailyRations(int limit = 20, int offsert = 0);
 }

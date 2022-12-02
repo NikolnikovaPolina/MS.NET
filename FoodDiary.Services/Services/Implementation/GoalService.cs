@@ -62,8 +62,22 @@ public class GoalService : IGoalService
         return mapper.Map<GoalModel>(existingGoal);
     }
 
-     public GoalModel AddGoal(GoalModel goalModel){
-      goalsRepository.Save(mapper.Map<Entities.Models.Goal>(goalModel));
+     public CreateGoalModel AddGoal(Guid UserId, GoalModel goal){
+
+        if(goalsRepository.GetAll(x => x.Id == goal.Id).FirstOrDefault() != null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        CreateGoalModel goalModel = new CreateGoalModel();
+
+        goalModel.NameOfTheGoal = goal.NameOfTheGoal;
+        goalModel.DesiresWeight = goal.DesiresWeight;
+        goalModel.DescriptionOfTheGoal = goal.DescriptionOfTheGoal;
+        goalModel.Program = goal.Program;
+        goalModel.UserId = goal.UserId;
+
+        goalsRepository.Save(mapper.Map<Entities.Models.Goal>(goalModel));
         return goalModel;
     }
 }

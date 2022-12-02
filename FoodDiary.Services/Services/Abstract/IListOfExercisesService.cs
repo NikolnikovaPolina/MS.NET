@@ -6,11 +6,11 @@ public interface IListOfExercisesService
 {
     ListOfExercisesModel GetListOfExercises(Guid id);
 
-    ListOfExercisesModel UpdateListOfExercises(Guid id, UpdateListOfExercisesModel user);
+    ListOfExercisesModel UpdateListOfExercises(Guid id, UpdateListOfExercisesModel listOfExercises);
 
     void DeleteListOfExercises(Guid id);
 
-    ListOfExercisesModel AddListOfExercises(ListOfExercisesModel listOfExercisesModel);
+    CreateListOfExercisesModel AddListOfExercises(Guid ExerciseId, Guid WorkoutId, ListOfExercisesModel listOfExercisesModel);
 
     PageModel<ListOfExercisesPreviewModel> GetListsOfExercises(int limit = 20, int offsert = 0);
 }

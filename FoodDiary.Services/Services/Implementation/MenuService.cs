@@ -62,8 +62,20 @@ public class MenuService : IMenuService
         return mapper.Map<MenuModel>(existingMenu);
     }
 
-     public MenuModel AddMenu(MenuModel menuModel){
-      menusRepository.Save(mapper.Map<Entities.Models.Menu>(menuModel));
+     public CreateMenuModel AddMenu(Guid DailyRationId, Guid ProductId, MenuModel menu){
+
+         if(menusRepository.GetAll(x => x.Id == menu.Id).FirstOrDefault() != null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        CreateMenuModel menuModel = new CreateMenuModel();
+
+        menuModel.ProductWeight = menu.ProductWeight;
+        menuModel.DailyRationId = menu.DailyRationId;
+        menuModel.ProductId = menu.ProductId;
+        
+        menusRepository.Save(mapper.Map<Entities.Models.Menu>(menuModel));
         return menuModel;
     }
 }

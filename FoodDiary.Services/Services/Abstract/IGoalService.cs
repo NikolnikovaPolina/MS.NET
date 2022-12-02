@@ -9,8 +9,6 @@ public interface IGoalService
     GoalModel UpdateGoal(Guid id, UpdateGoalModel user);
 
     void DeleteGoal(Guid id);
-
-    GoalModel AddGoal(GoalModel goalModel);
-
+    CreateGoalModel AddGoal(Guid UserId, GoalModel goal);
     PageModel<GoalPreviewModel> GetGoals(int limit = 20, int offsert = 0);
 }

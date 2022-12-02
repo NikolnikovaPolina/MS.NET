@@ -62,8 +62,20 @@ public class ListOfExercisesService : IListOfExercisesService
         return mapper.Map<ListOfExercisesModel>(existingListOfExercises);
     }
 
-     public ListOfExercisesModel AddListOfExercises(ListOfExercisesModel listOfExercisesModel){
-      listsOfExercisesRepository.Save(mapper.Map<Entities.Models.ListOfExercises>(listOfExercisesModel));
+     public CreateListOfExercisesModel AddListOfExercises(Guid ExerciseId, Guid WorkoutId, ListOfExercisesModel listOfExercises){
+
+         if(listsOfExercisesRepository.GetAll(x => x.Id == listOfExercises.Id).FirstOrDefault() != null)
+        {
+            throw new Exception ("Attempt to create a non-unique object!");
+        }
+
+        CreateListOfExercisesModel listOfExercisesModel = new CreateListOfExercisesModel();
+
+        listOfExercisesModel.ExerciseId = listOfExercises.ExerciseId;
+        listOfExercisesModel.WorkoutId = listOfExercises.WorkoutId;
+        listOfExercisesModel.Duration = listOfExercises.Duration;
+
+        listsOfExercisesRepository.Save(mapper.Map<Entities.Models.ListOfExercises>(listOfExercisesModel));
         return listOfExercisesModel;
     }
 }

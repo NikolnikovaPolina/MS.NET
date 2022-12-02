@@ -6,11 +6,11 @@ public interface IMenuService
 {
     MenuModel GetMenu(Guid id);
 
-    MenuModel UpdateMenu(Guid id, UpdateMenuModel user);
+    MenuModel UpdateMenu(Guid id, UpdateMenuModel menu);
 
     void DeleteMenu(Guid id);
 
-    MenuModel AddMenu(MenuModel menuModel);
+    CreateMenuModel AddMenu(Guid DailyRationId, Guid ProductId, MenuModel menu);
 
     PageModel<MenuPreviewModel> GetMenus(int limit = 20, int offsert = 0);
 }

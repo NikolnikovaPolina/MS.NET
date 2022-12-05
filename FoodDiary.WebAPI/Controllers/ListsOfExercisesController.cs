@@ -37,22 +37,21 @@ namespace FoodDiary.WebAPI.Controllers
             return Ok(mapper.Map<PageResponse<ListOfExercisesResponse>>(pageModel));
         }
 
-
         /// <summary>
         /// Update ListOfExerciseS
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateListOfExercises([FromRoute] Guid id, [FromBody] UpdateListOfExercisesRequest model)
+        public IActionResult UpdateListOfExercises([FromRoute] Guid id, [FromBody] UpdateListOfExercisesRequest listOfExercises)
         {
-            var validationResult = model.Validate();
+            var validationResult = listOfExercises.Validate();
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);
             }
             try
             {
-                var resultModel = listOfExercisesService.UpdateListOfExercises(id, mapper.Map<UpdateListOfExercisesModel>(model));
+                var resultModel = listOfExercisesService.UpdateListOfExercises(id, mapper.Map<UpdateListOfExercisesModel>(listOfExercises));
 
                 return Ok(mapper.Map<ListOfExercisesResponse>(resultModel));
             }
@@ -78,6 +77,17 @@ namespace FoodDiary.WebAPI.Controllers
             {
                 return BadRequest(ex.ToString());
             }
+        }
+
+         /// <summary>
+        /// Add ListOfExercises
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult AddListOfExercise([FromRoute] Guid exerciseId, [FromRoute] Guid workoutId, [FromBody] ListOfExercisesModel listOfExercises)
+        {
+            var response = listOfExercisesService.AddListOfExercises(exerciseId, workoutId, listOfExercises);
+            return Ok(response);
         }
 
         /// <summary>

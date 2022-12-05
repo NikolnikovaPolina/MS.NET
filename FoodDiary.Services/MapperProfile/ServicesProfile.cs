@@ -18,15 +18,17 @@ public class ServicesProfile : Profile
 
         #region DailyRations
 
-        CreateMap<DailyRation, Models.DailyRationModel>().ReverseMap();
+        CreateMap<DailyRation, DailyRationModel>().ReverseMap();
         CreateMap<DailyRation, DailyRationPreviewModel>().ReverseMap();
+        CreateMap<DailyRation, UpdateDailyRationModel>().ReverseMap();
 
         #endregion
 
         #region Exercises
 
-        CreateMap<Entities.Models.Exercise, ExerciseModel>().ReverseMap();
-        CreateMap<Entities.Models.Exercise, ExercisePreviewModel>().ReverseMap();
+        CreateMap<Exercise, ExerciseModel>().ReverseMap();
+        CreateMap<Exercise, ExercisePreviewModel>().ReverseMap();
+        CreateMap<Exercise, UpdateExerciseModel>().ReverseMap();
 
         #endregion
 
@@ -66,6 +68,7 @@ public class ServicesProfile : Profile
 
         CreateMap<Workout, WorkoutModel>().ReverseMap();
         CreateMap<Workout, WorkoutPreviewModel>().ReverseMap();
+        CreateMap<Workout, UpdateWorkoutModel>().ReverseMap();
 
         #endregion
     }

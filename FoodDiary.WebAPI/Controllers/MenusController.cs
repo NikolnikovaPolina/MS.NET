@@ -37,22 +37,21 @@ namespace FoodDiary.WebAPI.Controllers
             return Ok(mapper.Map<PageResponse<MenuResponse>>(pageModel));
         }
 
-
         /// <summary>
         /// Update Menu
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateMenu([FromRoute] Guid id, [FromBody] UpdateMenuRequest model)
+        public IActionResult UpdateMenu([FromRoute] Guid id, [FromBody] UpdateMenuRequest menu)
         {
-            var validationResult = model.Validate();
+            var validationResult = menu.Validate();
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);
             }
             try
             {
-                var resultModel = menuService.UpdateMenu(id, mapper.Map<UpdateMenuModel>(model));
+                var resultModel = menuService.UpdateMenu(id, mapper.Map<UpdateMenuModel>(menu));
 
                 return Ok(mapper.Map<MenuResponse>(resultModel));
             }
@@ -78,6 +77,17 @@ namespace FoodDiary.WebAPI.Controllers
             {
                 return BadRequest(ex.ToString());
             }
+        }
+
+        /// <summary>
+        /// Add menu
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult AddMenu([FromRoute] Guid dailyRationId, [FromRoute] Guid productId, [FromBody] MenuModel menu)
+        {
+            var response = menuService.AddMenu(dailyRationId, productId, menu);
+            return Ok(response);
         }
 
         /// <summary>

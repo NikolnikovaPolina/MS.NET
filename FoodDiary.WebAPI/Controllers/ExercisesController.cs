@@ -1,5 +1,6 @@
 using AutoMapper;
 using FoodDiary.Services.Abstract;
+using FoodDiary.Services.Models;
 using FoodDiary.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,6 +38,30 @@ namespace FoodDiary.WebAPI.Controllers
         }
 
         /// <summary>
+        /// Update Exercise
+        /// </summary>
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult UpdateExercise([FromRoute] Guid id, [FromBody] UpdateExerciseRequest exercise)
+        {
+            var validationResult = exercise.Validate();
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+            try
+            {
+                var resultModel = exerciseService.UpdateExercise(id, mapper.Map<UpdateExerciseModel>(exercise));
+
+                return Ok(mapper.Map<ExerciseResponse>(resultModel));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        /// <summary>
         /// Delete Exercise
         /// </summary>
         [HttpDelete]
@@ -52,6 +77,16 @@ namespace FoodDiary.WebAPI.Controllers
             {
                 return BadRequest(ex.ToString());
             }
+        }
+
+        /// <summary>
+        /// Add Exercise
+        /// </summary>
+        [HttpPost]
+        public IActionResult AddExercise([FromBody] ExerciseModel exercise)
+        {
+             var response = exerciseService.AddExercise(exercise);
+            return Ok(response);
         }
 
         /// <summary>

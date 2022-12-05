@@ -43,16 +43,16 @@ namespace FoodDiary.WebAPI.Controllers
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserRequest model)
+        public IActionResult UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserRequest user)
         {
-            var validationResult = model.Validate();
+            var validationResult = user.Validate();
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);
             }
             try
             {
-                var resultModel = userService.UpdateUser(id, mapper.Map<UpdateUserModel>(model));
+                var resultModel = userService.UpdateUser(id, mapper.Map<UpdateUserModel>(user));
 
                 return Ok(mapper.Map<UserResponse>(resultModel));
             }

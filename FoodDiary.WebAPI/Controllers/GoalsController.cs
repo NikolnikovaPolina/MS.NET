@@ -43,16 +43,16 @@ namespace FoodDiary.WebAPI.Controllers
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateGoal([FromRoute] Guid id, [FromBody] UpdateGoalRequest model)
+        public IActionResult UpdateGoal([FromRoute] Guid id, [FromBody] UpdateGoalRequest goal)
         {
-            var validationResult = model.Validate();
+            var validationResult = goal.Validate();
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);
             }
             try
             {
-                var resultModel = goalService.UpdateGoal(id, mapper.Map<UpdateGoalModel>(model));
+                var resultModel = goalService.UpdateGoal(id, mapper.Map<UpdateGoalModel>(goal));
 
                 return Ok(mapper.Map<GoalResponse>(resultModel));
             }
@@ -78,6 +78,17 @@ namespace FoodDiary.WebAPI.Controllers
             {
                 return BadRequest(ex.ToString());
             }
+        }
+
+        /// <summary>
+        /// Add Goal
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult AddGoal([FromRoute] Guid userId, [FromBody] GoalModel goal)
+        {
+            var response = goalService.AddGoal(userId, goal);
+            return Ok(response);
         }
 
         /// <summary>

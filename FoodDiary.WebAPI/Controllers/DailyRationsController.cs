@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FoodDiary.WebAPI.Controllers
 {
     /// <summary>
-    /// Daily ration endpoints
+    /// DailyRations endpoints
     /// </summary>
     [ProducesResponseType(200)]
     [ApiVersion("1.0")]
@@ -19,7 +19,7 @@ namespace FoodDiary.WebAPI.Controllers
         private readonly IMapper mapper;
 
         /// <summary>
-        /// Daily ration controller
+        /// DailyRations controller
         /// </summary>
         public DailyRationsController(IDailyRationService dailyRationService, IMapper mapper)
         {
@@ -27,7 +27,7 @@ namespace FoodDiary.WebAPI.Controllers
             this.mapper = mapper;
         }
         /// <summary>
-        /// Get Daily Rations by pages
+        /// Get DailyRations by pages
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -39,20 +39,20 @@ namespace FoodDiary.WebAPI.Controllers
 
 
         /// <summary>
-        /// Update Daily ration
+        /// Update DailyRation
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateDailyRation([FromRoute] Guid id, [FromBody] UpdateDailyRationRequest model)
+        public IActionResult UpdateDailyRation([FromRoute] Guid id, [FromBody] UpdateDailyRationRequest dailyRation)
         {
-            var validationResult = model.Validate();
+            var validationResult = dailyRation.Validate();
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);
             }
             try
             {
-                var resultModel = dailyRationService.UpdateDailyRation(id, mapper.Map<UpdateDailyRationModel>(model));
+                var resultModel = dailyRationService.UpdateDailyRation(id, mapper.Map<UpdateDailyRationModel>(dailyRation));
 
                 return Ok(mapper.Map<DailyRationResponse>(resultModel));
             }
@@ -63,7 +63,7 @@ namespace FoodDiary.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Delete Daily ration
+        /// Delete DailyRation
         /// </summary>
         [HttpDelete]
         [Route("{id}")]
@@ -81,7 +81,7 @@ namespace FoodDiary.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Add Daily ration
+        /// Add DailyRation
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -92,7 +92,7 @@ namespace FoodDiary.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get Daily ration
+        /// Get DailyRation
         /// </summary>
         [HttpGet]
         [Route("{id}")]

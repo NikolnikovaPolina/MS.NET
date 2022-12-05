@@ -10,7 +10,7 @@ public interface IListOfExercisesService
 
     void DeleteListOfExercises(Guid id);
 
-    CreateListOfExercisesModel AddListOfExercises(Guid ExerciseId, Guid WorkoutId, ListOfExercisesModel listOfExercisesModel);
+    CreateListOfExercisesModel AddListOfExercises(Guid exerciseId, Guid workoutId, ListOfExercisesModel listOfExercisesModel);
 
     PageModel<ListOfExercisesPreviewModel> GetListsOfExercises(int limit = 20, int offsert = 0);
 }

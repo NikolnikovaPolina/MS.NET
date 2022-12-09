@@ -21,6 +21,7 @@ public class ServicesProfile : Profile
         CreateMap<DailyRation, DailyRationModel>().ReverseMap();
         CreateMap<DailyRation, DailyRationPreviewModel>().ReverseMap();
         CreateMap<DailyRation, UpdateDailyRationModel>().ReverseMap();
+        CreateMap<DailyRation, CreateDailyRationModel>().ReverseMap();
 
         #endregion
 
@@ -29,14 +30,16 @@ public class ServicesProfile : Profile
         CreateMap<Exercise, ExerciseModel>().ReverseMap();
         CreateMap<Exercise, ExercisePreviewModel>().ReverseMap();
         CreateMap<Exercise, UpdateExerciseModel>().ReverseMap();
-
+        CreateMap<Exercise, CreateExerciseModel>().ReverseMap();
+        
         #endregion
 
         #region Goals
 
-        CreateMap<Menu, GoalModel>().ReverseMap();
-        CreateMap<Menu, GoalPreviewModel>().ReverseMap();
-        CreateMap<Menu, UpdateGoalModel>().ReverseMap();
+        CreateMap<Goal, GoalModel>().ReverseMap();
+        CreateMap<Goal, GoalPreviewModel>().ReverseMap();
+        CreateMap<Goal, UpdateGoalModel>().ReverseMap();
+        CreateMap<Goal, CreateGoalModel>().ReverseMap();
 
         #endregion
 
@@ -45,6 +48,7 @@ public class ServicesProfile : Profile
         CreateMap<ListOfExercises, ListOfExercisesModel>().ReverseMap();
         CreateMap<ListOfExercises, ListOfExercisesPreviewModel>().ReverseMap();
         CreateMap<ListOfExercises, UpdateListOfExercisesModel>().ReverseMap();
+        CreateMap<ListOfExercises, CreateListOfExercisesModel>().ReverseMap();
 
         #endregion
 
@@ -53,6 +57,7 @@ public class ServicesProfile : Profile
         CreateMap<Menu, MenuModel>().ReverseMap();
         CreateMap<Menu, MenuPreviewModel>().ReverseMap();
         CreateMap<Menu, UpdateMenuModel>().ReverseMap();
+        CreateMap<Menu, CreateMenuModel>().ReverseMap();
 
         #endregion
 
@@ -61,6 +66,7 @@ public class ServicesProfile : Profile
         CreateMap<Product, ProductModel>().ReverseMap();
         CreateMap<Product, ProductPreviewModel>().ReverseMap();
         CreateMap<Product, UpdateProductModel>().ReverseMap();
+        CreateMap<Product, CreateProductModel>().ReverseMap();
 
         #endregion
 
@@ -69,6 +75,7 @@ public class ServicesProfile : Profile
         CreateMap<Workout, WorkoutModel>().ReverseMap();
         CreateMap<Workout, WorkoutPreviewModel>().ReverseMap();
         CreateMap<Workout, UpdateWorkoutModel>().ReverseMap();
+        CreateMap<Workout, CreateWorkoutModel>().ReverseMap();
 
         #endregion
     }

@@ -1,19 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using FoodDiary.Entities.Models;
 
-namespace FoodDiary.Entities;
-public class Context : DbContext
-{    
-    public DbSet<DailyRation> DailyRations { get; set; }
-    public DbSet<Exercise> Exercises { get; set; }
-    public DbSet<Goal>Goals { get; set; }
-    public DbSet<ListOfExercises> ListsOfExercises { get; set; }
-    public DbSet<Menu> Menus { get; set; }
-    public DbSet<Product> Products { get; set; }
-    public DbSet<User> Users { get; set; }
-    public DbSet<Workout> Workouts { get; set; }
 
-    public Context(DbContextOptions<Context> options) : base(options) { }
+namespace FoodDiary.Entities;
+public class Context : IdentityDbContext<User, UserRole, Guid>
+{    
+    public Context(DbContextOptions<Context> options) : base(options) {}
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

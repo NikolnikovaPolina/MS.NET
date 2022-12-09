@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using FoodDiary.Entities;
 using FoodDiary.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

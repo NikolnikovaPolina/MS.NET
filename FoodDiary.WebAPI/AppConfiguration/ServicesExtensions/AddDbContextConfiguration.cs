@@ -12,6 +12,12 @@ public static partial class ServicesExtensions
     public static void AddDbContextConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
         string connectionString = configuration.GetConnectionString("Context");
+        
+        if (connectionString == null)
+        {
+            return;
+        }
+        
         services.AddDbContext<Context>(options =>
         {
             options

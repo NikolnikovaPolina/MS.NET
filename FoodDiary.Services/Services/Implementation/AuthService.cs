@@ -51,10 +51,11 @@ public class AuthService : IAuthService
             Workout = model.Workout,
             DailyRation = model.DailyRation,
             Goal = model.Goal,
+            PasswordHash = model.Password,
             EmailConfirmed = true
         };
 
-        var result = await userManager.CreateAsync(user, model.PasswordHash);
+        var result = await userManager.CreateAsync(user, model.Password);
         if (!result.Succeeded)
         {
             throw new LogicException(ResultCode.IDENTITY_SERVER_ERROR);
@@ -72,7 +73,7 @@ public class AuthService : IAuthService
             throw new LogicException(ResultCode.USER_NOT_FOUND);
         }
 
-        var result = await signInManager.CheckPasswordSignInAsync(user, model.PasswordHash, false);
+        var result = await signInManager.CheckPasswordSignInAsync(user, model.Password, false);
         if (!result.Succeeded)
         {
             throw new LogicException(ResultCode.EMAIL_OR_PASSWORD_IS_INCORRECT);
@@ -91,8 +92,8 @@ public class AuthService : IAuthService
             ClientId = model.ClientId,
             ClientSecret = model.ClientSecret,
             UserName = model.Email,
-            Password = model.PasswordHash,
-            Scope = "api offline_access"
+            Password = model.Password,
+            Scope = "api"
         });
 
         if (tokenResponse.IsError)

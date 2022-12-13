@@ -1,6 +1,7 @@
 using System;
 using FoodDiary.Entities;
 using FoodDiary.Entities.Models;
+using FoodDiary.Repository;
 using FoodDiary.Services.Abstract;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,19 +18,16 @@ public static class RepositoryInitializer
         await authService.RegisterUser(new Services.Models.RegisterUserModel()
         {
             Email = MASTER_ADMIN_EMAIL,
-            PasswordHash = MASTER_ADMIN_PASSWORD,
+            Password = MASTER_ADMIN_PASSWORD,
         });
     }
 
-   public static async Task InitializeRepository(IServiceProvider provider)
+   public static async Task InitializeRepository(IApplicationBuilder app)
     {
-        using (var scope = provider.GetService<IServiceScopeFactory>().CreateScope())
+        using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
         {
-            var context = scope.ServiceProvider.GetRequiredService<Context>();            
-            context.Database.Migrate();
-            
-            var userManager = (UserManager<User>)scope.ServiceProvider.GetRequiredService(typeof(UserManager<User>));
-            var user = await userManager.FindByEmailAsync(MASTER_ADMIN_EMAIL);
+            var usersRepository = (IRepository<User>)scope.ServiceProvider.GetRequiredService(typeof(IRepository<User>));
+            var user = usersRepository.GetAll().Where(x => x.Email == MASTER_ADMIN_EMAIL).FirstOrDefault();
             if (user == null)
             {
                 var authService = (IAuthService)scope.ServiceProvider.GetRequiredService(typeof(IAuthService));

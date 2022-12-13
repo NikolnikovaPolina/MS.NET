@@ -25,7 +25,7 @@ builder.Services.AddAuthorizationConfiguration(configuration);
 
 var app = builder.Build();
 
-await RepositoryInitializer.InitializeRepository(app.Services);
+await RepositoryInitializer.InitializeRepository(app);
 
 app.UseSerilogConfiguration();
 

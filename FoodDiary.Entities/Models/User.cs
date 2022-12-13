@@ -6,7 +6,7 @@ public class User : IdentityUser<Guid>, IBaseEntity
 {
     public string FIO { get; set; }
     public string Email { get; set; }
-   // public string PasswordHash { get; set; }
+    public string PasswordHash { get; set; }
     public DateTime DataOfBirth { get; set; }
     public Gender Gender { get; set; } 
     public float Weight { get; set; }

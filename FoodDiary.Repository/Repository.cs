@@ -6,12 +6,12 @@ using Microsoft.Extensions.Logging;
 
 namespace FoodDiary.Repository;
 
-public class Repository<T> : IRepository<T> where T : BaseEntity
+public class Repository<T> : IRepository<T> where T : class, IBaseEntity
 {
-    private DbContext _context;
+    private Context _context;
     private ILogger<Repository<T>> logger;
 
-    public Repository(DbContext context, ILogger<Repository<T>> logger)
+    public Repository(Context context, ILogger<Repository<T>> logger)
     {
         _context = context;
         this.logger = logger;

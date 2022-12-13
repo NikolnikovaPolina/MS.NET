@@ -2,6 +2,8 @@ using FoodDiary.WebAPI.AppConfiguration.ServicesExtensions;
 using FoodDiary.WebAPI.AppConfiguration.ApplicationExtensions;
 using FoodDiary.Repository;
 using FoodDiary.Services;
+using FoodDiary.AppConfiguration;
+using FoodDiary.WebAPI.AppConfiguration;
 using Serilog;
 
 var configuration = new ConfigurationBuilder()
@@ -16,11 +18,14 @@ builder.Services.AddDbContextConfiguration(configuration);
 builder.Services.AddVersioningConfiguration();
 builder.Services.AddMapperConfiguration();
 builder.Services.AddControllers();
-builder.Services.AddSwaggerConfiguration();
+builder.Services.AddSwaggerConfiguration(configuration);
 builder.Services.AddRepositoryConfiguration();
 builder.Services.AddBusinessLogicConfiguration();
+builder.Services.AddAuthorizationConfiguration(configuration);
 
 var app = builder.Build();
+
+await RepositoryInitializer.InitializeRepository(app.Services);
 
 app.UseSerilogConfiguration();
 
@@ -32,6 +37,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseMiddleware(typeof(ExceptionsMiddleware));
 app.MapControllers();
 
 try

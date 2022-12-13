@@ -36,7 +36,7 @@ namespace FoodDiary.Entities.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
@@ -73,7 +73,7 @@ namespace FoodDiary.Entities.Migrations
                     b.Property<int>("NumberofCaloriesBurned")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -105,7 +105,7 @@ namespace FoodDiary.Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
@@ -134,7 +134,7 @@ namespace FoodDiary.Entities.Migrations
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("WorkoutId")
@@ -167,7 +167,7 @@ namespace FoodDiary.Entities.Migrations
                     b.Property<float>("ProductWeight")
                         .HasColumnType("real");
 
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -195,7 +195,7 @@ namespace FoodDiary.Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -233,7 +233,7 @@ namespace FoodDiary.Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
                     
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.Property<float>("Weight")
@@ -267,7 +267,7 @@ namespace FoodDiary.Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedTime")
+                    b.Property<DateTime>("ModificationTime")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")

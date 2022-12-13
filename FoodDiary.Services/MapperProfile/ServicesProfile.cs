@@ -13,6 +13,8 @@ public class ServicesProfile : Profile
         CreateMap<User, UserModel>().ReverseMap();
         CreateMap<User, UserPreviewModel>().ReverseMap();
         CreateMap<User, UpdateUserModel>().ReverseMap();
+         CreateMap<User, RegisterUserModel>().ReverseMap();
+        CreateMap<User, LoginUserModel>().ReverseMap();
 
         #endregion
 

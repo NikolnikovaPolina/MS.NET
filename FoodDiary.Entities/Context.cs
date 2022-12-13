@@ -11,6 +11,8 @@ public class Context : IdentityDbContext<User, UserRole, Guid>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        base.OnModelCreating(builder);
+
         #region DailyRations
 
         builder.Entity<DailyRation>().ToTable("dailyRations");
@@ -73,6 +75,14 @@ public class Context : IdentityDbContext<User, UserRole, Guid>
 
         builder.Entity<User>().ToTable("users");
         builder.Entity<User>().HasKey(x => x.Id);
+
+        builder.Entity<IdentityUserClaim<Guid>>().ToTable("user_claims");
+        builder.Entity<IdentityUserLogin<Guid>>().ToTable("user_logins");
+        builder.Entity<IdentityUserToken<Guid>>().ToTable("user_tokens");
+        builder.Entity<UserRole>().ToTable("user_roles");
+        builder.Entity<IdentityRoleClaim<Guid>>().ToTable("user_role_claims");
+        builder.Entity<IdentityUserRole<Guid>>().ToTable("user_role_owners");
+
         builder.Entity<User>().HasOne(x => x.Goal)
                             .WithOne(x => x.User)
                             .HasForeignKey<Goal>(x => x.UserId);
@@ -82,7 +92,6 @@ public class Context : IdentityDbContext<User, UserRole, Guid>
         builder.Entity<User>().HasOne(x => x.Workout)
                             .WithOne(x => x.User)
                             .HasForeignKey<Workout>(x => x.UserId);                            
-
 
         #endregion
 

@@ -9,6 +9,12 @@
             Application builder extensions
             </summary>
         </member>
+        <member name="M:FoodDiary.WebAPI.AppConfiguration.ApplicationExtensions.AppExtensions.UseAuthorizationConfiguration(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Use Serilog configuration
+            </summary>
+            <param name="app"></param>
+        </member>
         <member name="M:FoodDiary.WebAPI.AppConfiguration.ApplicationExtensions.AppExtensions.UseSerilogConfiguration(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Use serilog configuration
@@ -25,6 +31,12 @@
             <summary>
             Services extensions
             </summary>
+        </member>
+        <member name="M:FoodDiary.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddAuthorizationConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add serilog configuration
+            </summary>
+            <param name="builder"></param>
         </member>
         <member name="M:FoodDiary.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddDbContextConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -44,7 +56,7 @@
             </summary>
             <param name="builder"></param>
         </member>
-        <member name="M:FoodDiary.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSwaggerConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:FoodDiary.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSwaggerConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Add swagger settings
             </summary>
@@ -344,6 +356,28 @@
             <summary>
             Get Workout
             </summary>
+        </member>
+        <member name="T:FoodDiary.Controllers.AuthController">
+            <summary>
+            Users endpoints
+            </summary>
+        </member>
+        <member name="M:FoodDiary.Controllers.AuthController.#ctor(FoodDiary.Services.Abstract.IAuthService,AutoMapper.IMapper)">
+            <summary>
+            Authcontroller
+            </summary>
+        </member>
+        <member name="M:FoodDiary.Controllers.AuthController.RegisterUser(FoodDiary.Services.Models.RegisterUserModel)">
+            <summary>
+            register
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FoodDiary.Controllers.AuthController.LogInUser(FoodDiary.Services.Models.LoginUserModel)">
+            <summary>
+            login
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
